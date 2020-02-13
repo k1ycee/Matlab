@@ -1,0 +1,19 @@
+secPerMin = 60;
+secPerHour = 3600;
+secPerDay = secPerHour * 24;
+secPerMonth = secPerDay * 30.5;
+secPerYear = secPerMonth * 12;
+day = 24;
+halfday = day/2;
+dayinsecs =(60*60);
+tau = (day+halfday)*dayinsecs;
+secondConversion = [secPerYear, secPerMonth, secPerDay, secPerHour, secPerMin, 1];
+start = clock();
+currentTime = clock();
+elapsedTime = start - currentTime;
+tSecondConversion = secondConversion';
+t = elapsedTime.*tSecondConversion;
+currentKnowledge = 1 - exp(-t/tau);
+prck = currentKnowledge * 100
+pfff = num2str(prck)
+disp(["At this time, I Know ",pfff,"% of MATLAB"])
